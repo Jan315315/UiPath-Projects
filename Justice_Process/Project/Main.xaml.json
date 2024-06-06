@@ -1,0 +1,69 @@
+{
+  "DisplayName": "Main",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_strInputFolderPath",
+      "DisplayName": "in_strInputFolderPath",
+      "Category": null,
+      "Tooltip": "input folder pro excel soubor k procesování dat",
+      "Placeholder": "C:\\Users\\elala\\Documents\\UiPath\\Process\\OutputFolder",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_strOutputFolderPath",
+      "DisplayName": "in_strOutputFolderPath",
+      "Category": null,
+      "Tooltip": "outputfolder k procesování dat",
+      "Placeholder": "C:\\Users\\elala\\Documents\\UiPath\\Process\\InputFolder",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_strInputExcelFileName",
+      "DisplayName": "in_strInputExcelFileName",
+      "Category": null,
+      "Tooltip": "název excelového input souboru",
+      "Placeholder": "\\RČ_IČ.xlsx",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_strURL",
+      "DisplayName": "in_strURL",
+      "Category": null,
+      "Tooltip": "input argument pro justice.cz",
+      "Placeholder": "https://justice.cz/",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_intTimeout",
+      "DisplayName": "in_intTimeout",
+      "Category": null,
+      "Tooltip": "input argument, timeout pro aktivity",
+      "Placeholder": "90000",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+Sub SaveSheetAsPDF()
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Sheets("List1") ' Replace "SheetName" with the name of your sheet
+    ' Set page properties to fit on one page horizontally
+    With ws.PageSetup
+        .Zoom = 50
+        .FitToPagesWide = 1
+        .FitToPagesTall = False
+    End With
+ 
+    ws.ExportAsFixedFormat Type:=xlTypePDF, Filename:="C:\Users\elala\Documents\UiPath\Process\OutputFolder\RC_IC_Result.pdf", Quality:=xlQualityStandard
+End Sub

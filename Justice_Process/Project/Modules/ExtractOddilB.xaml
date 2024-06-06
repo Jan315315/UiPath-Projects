@@ -1,0 +1,466 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractOddilB" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_intDelayAfter" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_intDelayBefore" Type="InArgument(x:Int32)" />
+    <x:Property Name="out_strPosledniZaznam" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1009,3652</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ExtractOddilB_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Extract Oddil B" sap:VirtualizedContainerService.HintSize="742,3587" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dtaExtractDataTable" />
+      <Variable x:TypeArguments="x:Boolean" Name="bOddilB" />
+      <Variable x:TypeArguments="x:String" Default="https://isir.justice.cz/*" Name="__strIsirJursticePage" />
+      <Variable x:TypeArguments="x:Boolean" Name="bOddilA" />
+      <Variable x:TypeArguments="x:String" Name="strPosledniZaznam" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Extract Oddil B started&quot;]" />
+    <ui:MultipleAssign DisplayName="Multiple Assign ExtractValuesJustice" sap:VirtualizedContainerService.HintSize="680,272" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:Boolean">[GlobalVariablesNamespace.GlobalVariables.bContinue]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.strSystemExceptionMessage]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.strBusinessExceptionMessage]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.strBlockName]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">Extract Oddil B</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[strPosledniZaznam]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="680,2890" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch.Try>
+        <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Detail'" sap:VirtualizedContainerService.HintSize="642,2630" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="74866555be94bfe33171ad8983c011e7" Selector="&lt;html app='chrome.exe' title='*ISIR*' /&gt;">
+          <ui:BrowserScope.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="608,2483" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="False" DelayBefore="[in_intDelayBefore]" DelayMS="[in_intDelayAfter]" DisplayName="Click Rozšířené Zobrazení" sap:VirtualizedContainerService.HintSize="546,139" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="975a9a53-0490-4959-8c08-4676255e38bd" InformativeScreenshot="98f743213bef43f5cbaa50a7a40edd04" Selector="&lt;webctrl id='a_show_detail' tag='A' class='tabBarText' innertext='Rozšířené zobrazení' parentclass='mainBody' visibleinnertext='Rozšířené zobrazení' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="546,107" sap2010:WorkflowViewState.IdRef="Comment_2" Text="Zkontroluj, zda existuje oddil B (prioritní oddíl), pokud ano extrahuj dta z oddílu B" />
+                <ui:UiElementExists DisplayName="Element Exists bOddilB" Exists="[bOddilB]" sap:VirtualizedContainerService.HintSize="546,139" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+                  <ui:UiElementExists.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="21de3f6b-3ec8-4727-8274-df1e416c8010" InformativeScreenshot="6d5864bba6d2bebb2b9588ad5904d9fb" Selector="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík*' /&gt;&lt;webctrl id='zalozkaB_switchtable' tag='TABLE' /&gt;&lt;webctrl aaname='  Oddíl B - Řízení po úpadku  ' tableRow='1' tag='A' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                  </ui:UiElementExists.Target>
+                </ui:UiElementExists>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="546,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Trace" Message="[&quot;Oddil B is: &lt;&quot; + bOddilB.ToString +&quot;&gt;&quot;]" />
+                <If Condition="[bOddilB]" sap:VirtualizedContainerService.HintSize="546,539" sap2010:WorkflowViewState.IdRef="If_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,347" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="False" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="450,262" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="9d50c818-ae17-435c-aa5a-3d28f4b1fbbb" Timeout="[intTimeout]" Version="V2">
+                        <uix:NApplicationCard.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NExtractData AppendResults="False" ContinueOnError="False" DataTable="[dtaExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Okamžik zveřejnění' ReferenceIdx='1' Name='Okamžik zveřejnění'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Okamžik zveřejnění1' ReferenceIdx='2' Name='Okamžik zveřejnění1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Popis' ReferenceIdx='3' Name='Popis'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='ID události' ReferenceIdx='4' Name='ID události'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Dokument' ReferenceIdx='5' Name='Dokument'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Dokument Url' ReferenceIdx='6' Name='Dokument Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vedlejší dokument *)' ReferenceIdx='7' Name='Vedlejší dokument *)'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Datum pravní moci' ReferenceIdx='8' Name='Datum pravní moci'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Senátní značka VS/NS' ReferenceIdx='9' Name='Senátní značka VS/NS'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Okamžik zveřejnění' attr='fulltext' /&gt;&lt;column name='Okamžik zveřejnění' attr='fulltext' /&gt;&lt;column name='Popis' attr='fulltext' /&gt;&lt;column name='ID události' attr='fulltext' /&gt;&lt;column name='Dokument' attr='fulltext' name2='Dokument Url' attr2='href' /&gt;&lt;column name='Vedlejší dokument *)' attr='fulltext' /&gt;&lt;column name='Datum pravní moci' attr='fulltext' /&gt;&lt;column name='Senátní značka VS/NS' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="9d50c818-ae17-435c-aa5a-3d28f4b1fbbb" Timeout="[intTimeout]" Version="V3">
+                                <uix:NExtractData.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://isir.justice.cz/isir/ueu/evidence_upadcu_detail.do?id=16BF25227D6788F6E06333F21FACEF27" DesignTimeRectangle="23, 653, 1307, 103" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='evidenceUpadcuDetailTable' parentid='zalozkaB' tag='TABLE' /&gt;" Guid="c9d09dae-5c22-4241-ae9f-3e1c67335624" InformativeScreenshot="6a8fcb53d6391926a3dcf4f20b56e8a1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík (1.18.1.0)' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                                </uix:NExtractData.Target>
+                              </uix:NExtractData>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,168" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Number of rows for Oddil B is: &lt;&quot; + dtaExtractDataTable.RowCount.ToString +&quot;&gt;&quot;]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </uix:NApplicationCard.Body>
+                        <uix:NApplicationCard.TargetApp>
+                          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="cccf6e0f4a9b0004a23189837b38fc88.jpg" Selector="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík *' /&gt;" Title="Detail lustrované osoby - ISIR - Insolvenční rejstřík (1.18.1.0)" Url="[__strIsirJursticePage]" />
+                        </uix:NApplicationCard.TargetApp>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NApplicationCard>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:Comment sap:VirtualizedContainerService.HintSize="354,107" sap2010:WorkflowViewState.IdRef="Comment_1" Text="pokud záložka oddíl B neexistuje, zkontroluj, zda existuje oddil A" />
+                      <ui:UiElementExists DisplayName="Element Exists bDetailInsolvenčníhoŘízení" Exists="[bOddilA]" sap:VirtualizedContainerService.HintSize="354,139" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="21de3f6b-3ec8-4727-8274-df1e416c8010" InformativeScreenshot="0a1e8236ac71f1d17b7bd648d6428ef2" Selector="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík*' /&gt;&lt;webctrl id='zalozkaB_switchtable' tag='TABLE' /&gt;&lt;webctrl tag='A' aaname='  Oddíl A - Řízení do úpadku  ' innertext='  Oddíl A - Řízení do úpadku  ' rowName='*Oddíl A - Řízení do úpadku*' /&gt;" TimeoutMS="[intTimeout]" WaitForReady="COMPLETE" />
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="354,164" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;Oddil A is: &lt;&quot; + bOddilA.ToString +&quot;&gt;&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="546,203" sap2010:WorkflowViewState.IdRef="Comment_3" Text="Zkontroluj, zda existuje oddil B (prioritní oddíl), pokud ano extrahuj dta ze sloupce ID Události a zapiš jej do strPosledníZáznam&#xA;&#xA;Pokud podmínka není splněna, extrahuj data z oddílu A a poslední řádek z ID Události vlož do strPosledníZáznam" />
+                <If Condition="[dtaExtractDataTable.rows.Count &gt; 0 and bOddilB]" sap:VirtualizedContainerService.HintSize="546,595" sap2010:WorkflowViewState.IdRef="If_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,22" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign strPosledniZaznam" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[strPosledniZaznam]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[dtaExtractDataTable.Rows(dtaExtractDataTable.Rows.Count-1)(4).ToString]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Posledni Zaznam  Oddil B: &lt;&quot; + strPosledniZaznam.ToString +&quot;&gt;&quot;]" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,403" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NApplicationCard AttachMode="ByInstance" ContinueOnError="False" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="450,318" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="53a98ddb-6a90-4e50-8c84-8a0f8d5a8164" Timeout="[intTimeout]" Version="V2">
+                        <uix:NApplicationCard.Body>
+                          <ActivityAction x:TypeArguments="x:Object">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="416,78" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <uix:NExtractData AppendResults="False" ContinueOnError="False" DataTable="[dtaExtractDataTable]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Okamžik zveřejnění' ReferenceIdx='1' Name='Okamžik zveřejnění'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Okamžik zveřejnění1' ReferenceIdx='2' Name='Okamžik zveřejnění1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Popis' ReferenceIdx='3' Name='Popis'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='ID události' ReferenceIdx='4' Name='ID události'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Dokument' ReferenceIdx='5' Name='Dokument'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Dokument Url' ReferenceIdx='6' Name='Dokument Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vedlejší dokument *)' ReferenceIdx='7' Name='Vedlejší dokument *)'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vedlejší dokument *) Url' ReferenceIdx='8' Name='Vedlejší dokument *) Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Datum pravní moci' ReferenceIdx='9' Name='Datum pravní moci'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Senátní značka VS/NS' ReferenceIdx='10' Name='Senátní značka VS/NS'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' /&gt;&lt;column name='Okamžik zveřejnění' attr='fulltext' /&gt;&lt;column name='Okamžik zveřejnění' attr='fulltext' /&gt;&lt;column name='Popis' attr='fulltext' /&gt;&lt;column name='ID události' attr='fulltext' /&gt;&lt;column name='Dokument' attr='fulltext' name2='Dokument Url' attr2='href' /&gt;&lt;column name='Vedlejší dokument *)' attr='fulltext' name2='Vedlejší dokument *) Url' attr2='href' /&gt;&lt;column name='Datum pravní moci' attr='fulltext' /&gt;&lt;column name='Senátní značka VS/NS' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="434,189" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="53a98ddb-6a90-4e50-8c84-8a0f8d5a8164" Timeout="[intTimeout]" Version="V3">
+                                <uix:NExtractData.Target>
+                                  <uix:TargetAnchorable BrowserURL="https://isir.justice.cz/isir/ueu/evidence_upadcu_detail.do?id=16BF25227D6788F6E06333F21FACEF27" DesignTimeRectangle="23, 653, 1307, 165" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl class='evidenceUpadcuDetailTable' parentid='zalozkaA' tag='TABLE' /&gt;" Guid="ec4c5957-539b-442c-a02b-08cb05107193" InformativeScreenshot="53c3313242094d3d646a46c964c0ee28.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík (1.18.1.0)' /&gt;" SearchSteps="Selector" Version="V3" Visibility="Interactive" />
+                                </uix:NExtractData.Target>
+                              </uix:NExtractData>
+                              <Assign DisplayName="Assign strPosledniZaznam" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[strPosledniZaznam]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[dtaExtractDataTable.Rows(dtaExtractDataTable.Rows.Count-1)(4).ToString]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;Posledni Zaznam  Oddil A: &lt;&quot; + strPosledniZaznam.ToString +&quot;&gt;&quot;]" />
+                            </Sequence>
+                          </ActivityAction>
+                        </uix:NApplicationCard.Body>
+                        <uix:NApplicationCard.TargetApp>
+                          <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="e5ea410daa9fba217122c22098009a1e.jpg" Selector="&lt;html app='chrome.exe' title='Detail lustrované osoby - ISIR - Insolvenční rejstřík*' /&gt;" Title="Detail lustrované osoby - ISIR - Insolvenční rejstřík (1.18.1.0)" Url="[__strIsirJursticePage]" />
+                        </uix:NApplicationCard.TargetApp>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </uix:NApplicationCard>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:Comment sap:VirtualizedContainerService.HintSize="546,107" sap2010:WorkflowViewState.IdRef="Comment_4" Text="Vrat se zpátky do formuláře a vyčisti dtaExtractDataTable" />
+                <ui:GoBack Browser="{x:Null}" DisplayName="Go Back" sap:VirtualizedContainerService.HintSize="546,57" sap2010:WorkflowViewState.IdRef="GoBack_1" />
+                <ui:GoBack Browser="{x:Null}" DisplayName="Go Back" sap:VirtualizedContainerService.HintSize="546,57" sap2010:WorkflowViewState.IdRef="GoBack_2" />
+                <ui:ClearDataTable DataTable="[dtaExtractDataTable]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="546,112" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+                <ui:MultipleAssign DisplayName="Multiple Assign outputs" sap:VirtualizedContainerService.HintSize="546,170" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                  <ui:MultipleAssign.AssignOperations>
+                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:String">[out_strPosledniZaznam]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:String">[strPosledniZaznam]</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                        <ui:AssignOperation.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[bContinue]</OutArgument>
+                        </ui:AssignOperation.To>
+                        <ui:AssignOperation.Value>
+                          <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                        </ui:AssignOperation.Value>
+                      </ui:AssignOperation>
+                    </scg:List>
+                  </ui:MultipleAssign.AssignOperations>
+                </ui:MultipleAssign>
+              </Sequence>
+            </ActivityAction>
+          </ui:BrowserScope.Body>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:BrowserScope>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="646,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="541,459" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,210" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[GlobalVariablesNamespace.GlobalVariables.bContinue]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.strSystemExceptionMessage]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">["Error appeared &lt;"+GlobalVariablesNamespace.GlobalVariables.strBlockName+"&gt;* at: &lt;" +exception.Source+"&gt; with message: &lt;" +exception.Message+"&gt;"]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[GlobalVariablesNamespace.GlobalVariables.strBusinessExceptionMessage]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[GlobalVariablesNamespace.GlobalVariables.strSystemExceptionMessage]" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;Extract Oddil B ended&quot;]" />
+  </Sequence>
+</Activity>
